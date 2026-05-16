@@ -11,3 +11,21 @@ body{
     radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
   background-size: 30px 30px;
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}

@@ -1,53 +1,27 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
-const projects = [
-  {
-    title: "Corporate Website",
-    category: "Web Development",
-    image: "/project1.png",
-    tech: ["React", "Tailwind"],
-    desc: "Premium business website built for brand growth.",
-  },
-  {
-    title: "E-Commerce Platform",
-    category: "Full Stack",
-    image: "/project2.png",
-    tech: ["React", "Supabase"],
-    desc: "Modern scalable online selling platform.",
-  },
-  {
-    title: "AI Chatbot",
-    category: "AI Solution",
-    image: "/project3.png",
-    tech: ["OpenAI", "Python"],
-    desc: "Smart business automation chatbot.",
-  },
-  {
-    title: "CRM Dashboard",
-    category: "ERP / CRM",
-    image: "/project4.png",
-    tech: ["React", "Node"],
-    desc: "Custom client relationship dashboard.",
-  },
-  {
-    title: "Mobile App",
-    category: "App Development",
-    image: "/project5.png",
-    tech: ["Flutter"],
-    desc: "Cross-platform mobile application.",
-  },
-  {
-    title: "SaaS Product",
-    category: "Product Development",
-    image: "/project6.png",
-    tech: ["React", "API"],
-    desc: "Subscription-based SaaS platform.",
-  },
-];
+import supabase from "../lib/supabase";
 
 function Portfolio({ limit = false }) {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  async function fetchProjects() {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (!error) {
+      setProjects(data || []);
+    }
+  }
+
   const displayedProjects = limit
     ? projects.slice(0, 3)
     : projects;
@@ -59,6 +33,7 @@ function Portfolio({ limit = false }) {
     >
       <div className="max-w-7xl mx-auto">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,10 +53,11 @@ function Portfolio({ limit = false }) {
           </p>
         </motion.div>
 
+        {/* Projects */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((project, i) => (
             <motion.div
-              key={i}
+              key={project.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -106,30 +82,31 @@ function Portfolio({ limit = false }) {
                 </h3>
 
                 <p className="mt-3 text-gray-600 dark:text-gray-300 text-sm">
-                  {project.desc}
+                  {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {project.tech.map((item, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs px-3 py-1 rounded-full bg-cyan-100 text-cyan-700"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
+                {project.project_url && (
+                  <a
+                    href={project.project_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 mt-6 text-cyan-500 font-semibold hover:gap-3 transition"
+                  >
+                    View Project
+                    <ArrowUpRight size={18} />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* View more */}
         {limit && (
           <div className="text-center mt-14">
             <Link
               to="/portfolio"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl"
+              className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition"
             >
               View Full Portfolio
             </Link>

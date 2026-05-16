@@ -87,6 +87,30 @@ function About() {
                 className="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl"
               >
                 <img
+                  src="/mayuresh.jpg"
+                  alt="Mayuresh Nikam"
+                  className="w-40 h-40 object-cover rounded-full mx-auto"
+                />
+
+                <h3 className="text-2xl font-bold mt-6 dark:text-white">
+                  Mr. Mayuresh Nikam
+                </h3>
+
+                <p className="text-cyan-500 font-semibold">
+                  Business Analyst
+                </p>
+                  Drives business growth, client relationships
+                  and strategic planning.
+                <p className="mt-4 text-gray-600 dark:text-gray-300">
+                  
+                </p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl"
+              >
+                <img
                   src="/abhilash.jpg"
                   alt="Abhilash Marathe"
                   className="w-40 h-40 object-cover rounded-full mx-auto"
@@ -103,30 +127,6 @@ function About() {
                 <p className="mt-4 text-gray-600 dark:text-gray-300">
                   Leads technology strategy, development,
                   architecture and product execution.
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -8 }}
-                className="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl"
-              >
-                <img
-                  src="/mayuresh.jpg"
-                  alt="Mayuresh Nikam"
-                  className="w-40 h-40 object-cover rounded-full mx-auto"
-                />
-
-                <h3 className="text-2xl font-bold mt-6 dark:text-white">
-                  Mr. Mayuresh Nikam
-                </h3>
-
-                <p className="text-cyan-500 font-semibold">
-                  Business Analyst
-                </p>
-
-                <p className="mt-4 text-gray-600 dark:text-gray-300">
-                  Drives business growth, client relationships
-                  and strategic planning.
                 </p>
               </motion.div>
 

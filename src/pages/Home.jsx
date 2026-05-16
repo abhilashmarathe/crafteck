@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import TechMarquee from "../components/TechMarquee";
 import Stats from "../components/Stats";
 import Services from "../components/Services";
 import Portfolio from "../components/Portfolio";
@@ -12,6 +13,7 @@ function Home() {
     <>
       <Navbar />
       <Hero />
+      <TechMarquee />
       <Services limit={true} />
       <Stats />
       <Portfolio limit={true}/>
