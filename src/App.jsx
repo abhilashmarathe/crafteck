@@ -47,7 +47,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/quote" element={<Quote />} />
-        <Route path="/add-project" element={<AddProject />} />
+        <Route path="/admin/add-project" element={<AddProject />} />
       </Routes>
     </BrowserRouter>
   );
