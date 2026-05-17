@@ -56,10 +56,8 @@ function About() {
               </h2>
 
               <p className="mt-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Crafteck was founded in <strong>2026</strong> by
-                <strong> Mr. Abhilash Marathe</strong> (Tech Lead)
-                and <strong>Mr. Mayuresh Nikam</strong> (Business Analyst)
-                from Kolhapur, Maharashtra.
+                Crafteck was founded in <strong>2026</strong>
+                in Kolhapur, Maharashtra.
 
                 <br /><br />
 

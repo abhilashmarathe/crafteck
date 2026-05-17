@@ -13,9 +13,9 @@ function Home() {
     <>
       <Navbar />
       <Hero />
-      <TechMarquee />
       <Services limit={true} />
       <Stats />
+      <TechMarquee />
       <Portfolio limit={true}/>
       <WhatsAppButton />
       <Footer />
