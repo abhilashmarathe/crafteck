@@ -36,23 +36,23 @@ function Footer() {
             </h3>
 
             <div className="space-y-3 text-gray-400">
-              <Link to="/" className="block hover:text-cyan-400 transition">
+              <Link to="/" className="block hover:text-[#f86e07] transition">
                 Home
               </Link>
 
-              <Link to="/about" className="block hover:text-cyan-400 transition">
+              <Link to="/about" className="block hover:text-[#f86e07] transition">
                 About
               </Link>
 
-              <Link to="/services" className="block hover:text-cyan-400 transition">
+              <Link to="/services" className="block hover:text-[#f86e07] transition">
                 Services
               </Link>
 
-              <Link to="/portfolio" className="block hover:text-cyan-400 transition">
+              <Link to="/portfolio" className="block hover:text-[#f86e07] transition">
                 Portfolio
               </Link>
 
-              <Link to="/contact" className="block hover:text-cyan-400 transition">
+              <Link to="/contact" className="block hover:text-[#f86e07] transition">
                 Contact
               </Link>
             </div>
@@ -65,15 +65,15 @@ function Footer() {
             </h3>
 
             <div className="space-y-3 text-gray-400">
-              <a href="#" className="block hover:text-cyan-400 transition">
+              <a href="#" className="block hover:text-[#f86e07] transition">
                 Terms & Conditions
               </a>
 
-              <a href="#" className="block hover:text-cyan-400 transition">
+              <a href="#" className="block hover:text-[#f86e07] transition">
                 Privacy Policy
               </a>
 
-              <a href="#" className="block hover:text-cyan-400 transition">
+              <a href="#" className="block hover:text-[#f86e07] transition">
                 Cookie Policy
               </a>
             </div>
@@ -88,17 +88,17 @@ function Footer() {
             <div className="space-y-4 text-gray-400">
 
               <div className="flex gap-3">
-                <Mail size={18} className="text-cyan-400" />
+                <Mail size={18} className="text-[#f86e07]" />
                 <span>mayureshnikam10@gmail.com</span>
               </div>
 
               <div className="flex gap-3">
-                <Phone size={18} className="text-cyan-400" />
+                <Phone size={18} className="text-[#f86e07]" />
                 <span>+91 92846 77663</span>
               </div>
 
               <div className="flex gap-3">
-                <MapPin size={18} className="text-cyan-400" />
+                <MapPin size={18} className="text-[#f86e07]" />
                 <span>Kolhapur, Maharashtra, India 416013</span>
               </div>
 

@@ -54,7 +54,7 @@ function Contact() {
           viewport={{ once:true }}
           className="text-center mb-20"
         >
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Contact Us
           </p>
 
@@ -77,7 +77,7 @@ function Contact() {
             className="space-y-6"
           >
             <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 flex gap-4">
-              <Mail className="text-cyan-500" />
+              <Mail className="text-[#f86e07]" />
               <div>
                 <h3 className="font-semibold dark:text-white">Email</h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -87,7 +87,7 @@ function Contact() {
             </div>
 
             <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 flex gap-4">
-              <Phone className="text-cyan-500" />
+              <Phone className="text-[#f86e07]" />
               <div>
                 <h3 className="font-semibold dark:text-white">Phone</h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -97,7 +97,7 @@ function Contact() {
             </div>
 
             <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 flex gap-4">
-              <MapPin className="text-cyan-500" />
+              <MapPin className="text-[#f86e07]" />
               <div>
                 <h3 className="font-semibold dark:text-white">Location</h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -146,7 +146,7 @@ function Contact() {
 
             <button
               disabled={loading}
-              className="w-full bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition-all"
+              className="w-full bg-[#f86e07] hover:bg-[#e86200] text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-[#f86e07]/30 transition-all"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

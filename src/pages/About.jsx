@@ -23,7 +23,7 @@ function About() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+            <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
               About Us
             </p>
 
@@ -94,7 +94,7 @@ function About() {
                   Mr. Mayuresh Nikam
                 </h3>
 
-                <p className="text-cyan-500 font-semibold">
+                <p className="text-[#f86e07] font-semibold">
                   Business Analyst
                 </p>
                   
@@ -118,7 +118,7 @@ function About() {
                   Mr. Abhilash Marathe
                 </h3>
 
-                <p className="text-cyan-500 font-semibold">
+                <p className="text-[#f86e07] font-semibold">
                   Tech Lead
                 </p>
 
@@ -135,7 +135,7 @@ function About() {
           <div className="grid md:grid-cols-2 gap-8 mt-24">
 
             <div className="p-10 rounded-3xl bg-white dark:bg-slate-900 shadow-xl">
-              <Target className="text-cyan-500 mb-6" size={42} />
+              <Target className="text-[#f86e07] mb-6" size={42} />
               <h3 className="text-3xl font-bold dark:text-white">
                 Our Mission
               </h3>
@@ -145,7 +145,7 @@ function About() {
             </div>
 
             <div className="p-10 rounded-3xl bg-white dark:bg-slate-900 shadow-xl">
-              <Eye className="text-cyan-500 mb-6" size={42} />
+              <Eye className="text-[#f86e07] mb-6" size={42} />
               <h3 className="text-3xl font-bold dark:text-white">
                 Our Vision
               </h3>
@@ -172,7 +172,7 @@ function About() {
                   className="p-8 rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
                 >
                   <CheckCircle
-                    className="mx-auto text-cyan-500 mb-4"
+                    className="mx-auto text-[#f86e07] mb-4"
                     size={36}
                   />
 

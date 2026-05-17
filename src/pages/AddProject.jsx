@@ -84,7 +84,7 @@ function AddProject() {
       <main className="flex-1 p-10">
 
         <div className="mb-10">
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Project Management
           </p>
 
@@ -162,7 +162,7 @@ function AddProject() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-400 text-white py-4 rounded-xl font-semibold shadow-lg hover:shadow-cyan-500/30 transition"
+              className="w-full bg-[#f86e07] hover:bg-[#e86200] disabled:bg-gray-400 text-white py-4 rounded-xl font-semibold shadow-lg hover:shadow-[#f86e07]/30 transition"
             >
               {loading ? "Uploading..." : "Add Project"}
             </button>

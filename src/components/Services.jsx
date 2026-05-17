@@ -72,7 +72,7 @@ function Services({ limit = false }) {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Our Expertise
           </p>
 
@@ -98,10 +98,10 @@ function Services({ limit = false }) {
                 transition={{ delay: i * 0.1 }}
                 className="group p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl hover:-translate-y-3 hover:shadow-2xl transition"
               >
-                <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition">
+                <div className="w-16 h-16 rounded-2xl bg-[#f86e07]/10 flex items-center justify-center mb-6 group-hover:bg-[#f86e07] transition">
                   <Icon
                     size={30}
-                    className="text-cyan-500 group-hover:text-white transition"
+                    className="text-[#f86e07] group-hover:text-white transition"
                   />
                 </div>
 
@@ -121,7 +121,7 @@ function Services({ limit = false }) {
           <div className="text-center mt-14">
             <Link
               to="/services"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl"
+              className="bg-[#f86e07] hover:bg-[#e86200] text-white px-8 py-4 rounded-xl"
             >
               View All Services
             </Link>

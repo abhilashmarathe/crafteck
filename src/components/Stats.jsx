@@ -25,7 +25,7 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="py-24 bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
+    <section className="py-24 bg-gradient-to-r from-[#f86e07] via-[#ff7b00] to-[#ffb347] text-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="uppercase tracking-widest text-cyan-100">

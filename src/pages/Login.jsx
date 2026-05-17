@@ -31,7 +31,7 @@ function Login() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-cyan-50 dark:from-slate-950 dark:to-slate-900 px-6">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-950 dark:to-slate-900 px-6">
       <div className="w-full max-w-md p-10 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl shadow-2xl">
 
         <h1 className="text-4xl font-bold text-center dark:text-white">
@@ -64,7 +64,7 @@ function Login() {
 
           <button
             disabled={loading}
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-xl"
+            className="w-full bg-[#f86e07] hover:bg-[#e86200] text-white py-4 rounded-xl"
           >
             {loading ? "Logging in..." : "Login"}
           </button>

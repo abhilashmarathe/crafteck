@@ -36,7 +36,7 @@ function Admin() {
 
         {/* Header */}
         <div className="mb-8">
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Dashboard
           </p>
 
@@ -64,7 +64,7 @@ function Admin() {
 
           <div className="bg-white p-7 rounded-3xl shadow-lg">
             <p className="text-gray-500">Database</p>
-            <h2 className="text-4xl font-bold mt-3 text-cyan-500">
+            <h2 className="text-4xl font-bold mt-3 text-[#f86e07]">
               Healthy
             </h2>
           </div>

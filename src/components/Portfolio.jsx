@@ -40,7 +40,7 @@ function Portfolio({ limit = false }) {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Our Portfolio
           </p>
 
@@ -73,7 +73,7 @@ function Portfolio({ limit = false }) {
               </div>
 
               <div className="p-8">
-                <p className="text-cyan-500 text-sm font-semibold uppercase">
+                <p className="text-[#f86e07] text-sm font-semibold uppercase">
                   {project.category}
                 </p>
 
@@ -90,7 +90,7 @@ function Portfolio({ limit = false }) {
                     href={project.project_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 mt-6 text-cyan-500 font-semibold hover:gap-3 transition"
+                    className="inline-flex items-center gap-2 mt-6 text-[#f86e07] font-semibold hover:gap-3 transition"
                   >
                     View Project
                     <ArrowUpRight size={18} />
@@ -106,7 +106,7 @@ function Portfolio({ limit = false }) {
           <div className="text-center mt-14">
             <Link
               to="/portfolio"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition"
+              className="bg-[#f86e07] hover:bg-[#e86200] text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-[#f86e07]/30 transition"
             >
               View Full Portfolio
             </Link>

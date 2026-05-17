@@ -46,7 +46,7 @@ function AdminSidebar() {
               to={item.path}
               className={`flex items-center gap-3 px-5 py-4 rounded-2xl transition ${
                 location.pathname === item.path
-                  ? "bg-cyan-500 text-white"
+                  ? "bg-[#f86e07] text-white"
                   : "hover:bg-slate-800"
               }`}
             >

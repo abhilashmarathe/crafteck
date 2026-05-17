@@ -50,12 +50,12 @@ function QuoteForm() {
   }
 
   return (
-    <section className="py-28 px-6 md:px-10 bg-gradient-to-br from-slate-50 to-cyan-50 dark:from-slate-950 dark:to-slate-900">
+    <section className="py-28 px-6 md:px-10 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-cyan-500 font-semibold uppercase tracking-widest">
+          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
             Project Estimation
           </p>
 
@@ -139,7 +139,7 @@ function QuoteForm() {
             </div>
 
             <div className="relative">
-              <div className="absolute left-4 top-4 text-cyan-500">
+              <div className="absolute left-4 top-4 text-[#f86e07]">
                 <FileText size={18} />
               </div>
 
@@ -154,7 +154,7 @@ function QuoteForm() {
 
             <button
               disabled={loading}
-              className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-5 rounded-2xl text-lg font-semibold shadow-lg hover:shadow-cyan-500/30 transition"
+              className="w-full bg-[#f86e07] hover:bg-[#e86200] text-white py-5 rounded-2xl text-lg font-semibold shadow-lg hover:shadow-[#f86e07]/30 transition"
             >
               {loading ? "Submitting..." : "Get Free Quote"}
             </button>
@@ -174,7 +174,7 @@ function QuoteForm() {
 function InputField({ icon, ...props }) {
   return (
     <div className="relative">
-      <div className="absolute left-4 top-4 text-cyan-500">
+      <div className="absolute left-4 top-4 text-[#f86e07]">
         {icon}
       </div>
       <input
@@ -190,7 +190,7 @@ function InputField({ icon, ...props }) {
 function SelectField({ icon, options, placeholder, ...props }) {
   return (
     <div className="relative">
-      <div className="absolute left-4 top-4 text-cyan-500 z-10">
+      <div className="absolute left-4 top-4 text-[#f86e07] z-10">
         {icon}
       </div>
       <select

@@ -8,7 +8,7 @@ function Loader({ dark }) {
 
       {/* glow ring */}
       <motion.div
-        className="absolute w-44 h-44 rounded-full bg-cyan-500/20 blur-3xl"
+        className="absolute w-44 h-44 rounded-full bg-[#f86e07]/20 blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
         }}
