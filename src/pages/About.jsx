@@ -97,10 +97,10 @@ function About() {
                 <p className="text-cyan-500 font-semibold">
                   Business Analyst
                 </p>
+                  
+                <p className="mt-4 text-gray-600 dark:text-gray-300">
                   Drives business growth, client relationships
                   and strategic planning.
-                <p className="mt-4 text-gray-600 dark:text-gray-300">
-                  
                 </p>
               </motion.div>
 
