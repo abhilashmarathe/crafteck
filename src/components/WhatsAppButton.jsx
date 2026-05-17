@@ -1,10 +1,10 @@
-import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import whatsappLogo from "../assets/whatsapp-logo.png";
 
 function WhatsAppButton() {
   return (
     <motion.a
-      href="https://wa.me/919999999999"
+      href="https://wa.me/919284677663"
       target="_blank"
       rel="noreferrer"
       initial={{ scale: 0 }}
@@ -14,16 +14,21 @@ function WhatsAppButton() {
       className="group fixed bottom-6 right-6 z-50"
     >
       {/* Tooltip */}
-      <span className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition whitespace-nowrap bg-slate-900 text-white px-4 py-2 rounded-lg text-sm">
+      <span className="absolute right-20 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap bg-slate-900 text-white px-4 py-2 rounded-lg text-sm shadow-lg">
         Chat with us
       </span>
 
-      {/* Button */}
+      {/* Animated Button */}
       <div className="relative">
+        {/* pulse */}
         <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30"></span>
 
-        <div className="relative bg-green-500 text-white p-4 md:p-5 rounded-full shadow-2xl">
-          <MessageCircle size={30} />
+        <div className="relative bg-white p-3 md:p-4 rounded-full shadow-2xl border border-green-100">
+          <img
+            src={whatsappLogo}
+            alt="WhatsApp"
+            className="h-10 w-10 md:h-12 md:w-12 object-contain"
+          />
         </div>
       </div>
     </motion.a>

@@ -25,7 +25,7 @@ function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-72 min-h-screen bg-slate-900 text-white p-8 flex flex-col shadow-2xl">
+    <aside className="w-80 min-h-screen bg-slate-900 text-white p-8 flex flex-col shadow-2xl">
 
       <div>
         <h1 className="text-3xl font-black text-cyan-400">
@@ -59,7 +59,7 @@ function AdminSidebar() {
 
       <button
         onClick={handleLogout}
-        className="mt-auto flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 py-4 rounded-2xl font-semibold transition"
+        className="mt-10 flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 py-4 rounded-2xl font-semibold transition"
       >
         <LogOut size={18} />
         Logout
