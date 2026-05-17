@@ -8,7 +8,7 @@ function PortfolioPage() {
     <>
       <Navbar />
 
-      <main className="pt-24 min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors">
+      <main className="pt-20 sm:pt-24 md:pt-28 min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors">
         <PortfolioComponent limit={false} />
       </main>
 
