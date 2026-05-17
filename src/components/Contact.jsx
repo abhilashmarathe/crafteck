@@ -15,9 +15,16 @@ function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!form.name || !form.email || !form.message) {
-      alert("Please fill all fields");
-      return;
+    if (!form.name.trim()) {
+      return alert("Name is required");
+    }
+
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      return alert("Enter valid email");
+    }
+
+    if (form.message.trim().length < 10) {
+      return alert("Message must be at least 10 characters");
     }
 
     setLoading(true);
@@ -31,7 +38,7 @@ function Contact() {
     if (error) {
       alert(error.message);
     } else {
-      alert("Message sent successfully!");
+      alert("Message sent successfully");
       setForm({
         name: "",
         email: "",

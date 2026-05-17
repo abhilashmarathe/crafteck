@@ -8,15 +8,32 @@ import logoDark from "../assets/logo-dark.png";
 function Navbar() {
   const location = useLocation();
 
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
+  const [dark, setDark] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // set default theme on first load
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }, []);
+
+  // update theme when toggled
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
   }, [dark]);
 
   useEffect(() => {
@@ -42,14 +59,13 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full backdrop-blur-xl bg-white/85 dark:bg-slate-950/85 border-b border-gray-200 dark:border-slate-800 z-50">
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
 
         <Link to="/">
           <img
             src={dark ? logoDark : logoLight}
             alt="Crafteck Logo"
-            className="h-12 sm:h-14 md:h-20 w-auto transition duration-300 hover:scale-105"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto transition duration-300 hover:scale-105"
           />
         </Link>
 
@@ -71,9 +87,9 @@ function Navbar() {
 
           <button
             onClick={() => setDark(!dark)}
-            className="px-4 py-2 rounded-xl bg-[#f86e07] hover:bg-[#e86200] text-white transition"
+            className="px-4 py-2 rounded-xl bg-[#f86e07] hover:bg-[#e86200] text-white"
           >
-            {dark ? "☀" : "🌙"}
+            {dark ? "☀️" : "🌙"}
           </button>
         </div>
 
@@ -84,7 +100,7 @@ function Navbar() {
             onClick={() => setDark(!dark)}
             className="px-3 py-2 rounded-lg bg-[#f86e07] text-white"
           >
-            {dark ? "☀" : "🌙"}
+            {dark ? "☀️" : "🌙"}
           </button>
 
           <button
@@ -93,10 +109,10 @@ function Navbar() {
           >
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
+
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

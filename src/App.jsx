@@ -5,15 +5,16 @@ import {
 } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-import Loader from "./components/Loader";
 
-import Quote from "./pages/Quote";
+import Loader from "./components/Loader";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import Quote from "./pages/Quote";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AddProject from "./pages/AddProject";
@@ -39,15 +40,39 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/quote" element={<Quote />} />
-        <Route path="/admin/add-project" element={<AddProject />} />
+
+        {/* login */}
+        <Route
+          path="/admin/login"
+          element={<Login />}
+        />
+
+        {/* protected admin */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/add-project"
+          element={
+            <ProtectedRoute>
+              <AddProject />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
     </BrowserRouter>
   );

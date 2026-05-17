@@ -25,30 +25,57 @@ function QuoteForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!form.name.trim()) {
+      return alert("Name required");
+    }
+
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      return alert("Enter valid email");
+    }
+
+    if (!/^[0-9]{10}$/.test(form.phone)) {
+      return alert("Enter valid 10 digit phone");
+    }
+
+    if (!form.service) {
+      return alert("Select service");
+    }
+
+    if (!form.budget) {
+      return alert("Select budget");
+    }
+
+    if (form.requirements.length < 20) {
+      return alert(
+        "Requirements should be minimum 20 characters"
+      );
+    }
+
     setLoading(true);
 
     const { error } = await supabase
       .from("quotes")
       .insert([form]);
 
+    setLoading(false);
+
     if (error) {
       alert(error.message);
     } else {
-      alert("Quote request submitted successfully!");
+      alert("Quote submitted successfully");
+
       setForm({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        budget: "",
-        requirements: "",
+        name:"",
+        email:"",
+        phone:"",
+        company:"",
+        service:"",
+        budget:"",
+        requirements:"",
       });
     }
-
-    setLoading(false);
   }
-
   return (
     <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-10 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-5xl mx-auto">
