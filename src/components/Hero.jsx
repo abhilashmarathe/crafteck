@@ -70,7 +70,7 @@ function Hero() {
 
           <Link
             to="/portfolio"
-            className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-slate-800 transition"
+            className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-xl hover:bg-white/70 hover:text-cyan-500 transition dark:text-white"
           >
             View Portfolio
           </Link>
