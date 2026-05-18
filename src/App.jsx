@@ -18,10 +18,10 @@ import Quote from "./pages/Quote";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AddProject from "./pages/AddProject";
+import EditProject from "./pages/EditProject";
 
 function App() {
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,12 +39,12 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/"          element={<Home />} />
+        <Route path="/about"     element={<About />} />
+        <Route path="/services"  element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/quote" element={<Quote />} />
+        <Route path="/contact"   element={<Contact />} />
+        <Route path="/quote"     element={<Quote />} />
 
         {/* login */}
         <Route
@@ -67,6 +67,15 @@ function App() {
           element={
             <ProtectedRoute>
               <AddProject />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/edit-project/:id"
+          element={
+            <ProtectedRoute>
+              <EditProject />
             </ProtectedRoute>
           }
         />
