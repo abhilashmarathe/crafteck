@@ -6,6 +6,7 @@ import supabase from "../lib/supabase";
 
 function Portfolio({ limit = false }) {
   const [projects, setProjects] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     fetchProjects();
@@ -22,9 +23,21 @@ function Portfolio({ limit = false }) {
     }
   }
 
+  const categories = [
+    "All",
+    ...new Set(projects.map((p) => p.category)),
+  ];
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter(
+          (p) => p.category === selectedCategory
+        );
+
   const displayedProjects = limit
-    ? projects.slice(0, 3)
-    : projects;
+    ? filteredProjects.slice(0, 3)
+    : filteredProjects;
 
   return (
     <section
@@ -33,6 +46,7 @@ function Portfolio({ limit = false }) {
     >
       <div className="max-w-7xl mx-auto">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,6 +66,27 @@ function Portfolio({ limit = false }) {
           </p>
         </motion.div>
 
+        {/* category filter only on full portfolio page */}
+        {!limit && (
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition
+                ${
+                  selectedCategory === cat
+                    ? "bg-[#f86e07] text-white"
+                    : "bg-white dark:bg-slate-800 text-slate-700 dark:text-white border border-slate-300 dark:border-slate-700 hover:border-[#f86e07]"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* projects */}
         {displayedProjects.length === 0 ? (
           <div className="text-center py-20 text-gray-500 dark:text-gray-400">
             No projects added yet.
@@ -69,7 +104,7 @@ function Portfolio({ limit = false }) {
               >
                 <div className="overflow-hidden">
                   <img
-                    src={project.image || "/placeholder.png"}
+                    src={project.image}
                     alt={project.title}
                     className="h-52 sm:h-60 md:h-64 w-full object-cover group-hover:scale-110 transition duration-500"
                   />
@@ -105,7 +140,8 @@ function Portfolio({ limit = false }) {
           </div>
         )}
 
-        {limit && (
+        {/* home page button */}
+        {limit &&  (
           <div className="text-center mt-10 md:mt-14">
             <Link
               to="/portfolio"
