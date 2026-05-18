@@ -69,7 +69,7 @@ function Contact() {
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-            Have a project in mind? Let’s talk.
+            Want to build identity for your brand? Connect Today.
           </p>
         </motion.div>
 
