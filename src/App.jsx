@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 import Loader from "./components/Loader";
+import CookieConsent from "./components/CookieConsent";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
@@ -15,6 +16,11 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
+
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Cookies from "./pages/Cookies";
+
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AddProject from "./pages/AddProject";
@@ -45,6 +51,9 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact"   element={<Contact />} />
         <Route path="/quote"     element={<Quote />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/cookies" element={<Cookies />} />
 
         {/* login */}
         <Route
@@ -81,6 +90,7 @@ function App() {
         />
 
       </Routes>
+      <CookieConsent />
     </BrowserRouter>
   );
 }

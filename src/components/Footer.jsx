@@ -51,17 +51,17 @@ function Footer() {
             </h3>
 
             <div className="space-y-3 text-sm md:text-base text-gray-400">
-              <a href="#" className="block hover:text-[#f86e07] transition">
+              <Link to="/terms" className="block hover:text-[#f86e07] transition">
                 Terms & Conditions
-              </a>
+              </Link>
 
-              <a href="#" className="block hover:text-[#f86e07] transition">
+              <Link to="/privacy" className="block hover:text-[#f86e07] transition">
                 Privacy Policy
-              </a>
+              </Link>
 
-              <a href="#" className="block hover:text-[#f86e07] transition">
+              <Link to="/cookies" className="block hover:text-[#f86e07] transition">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
 
