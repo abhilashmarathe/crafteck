@@ -17,8 +17,8 @@ const stats = [
     icon: Users,
   },
   {
-    number: "24/7",
-    label: "Support",
+    number: "365",
+    label: "Days Support",
     icon: Headphones,
   },
 ];
