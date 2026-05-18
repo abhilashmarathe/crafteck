@@ -16,7 +16,7 @@ function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-5 left-5 right-5 md:left-auto md:max-w-md z-[999] bg-white dark:bg-slate-900 shadow-2xl rounded-3xl p-6 border dark:border-slate-700">
+    <div className="fixed bottom-5 left-5 right-5 md:right-auto md:max-w-md z-[999] bg-white dark:bg-slate-900 shadow-2xl rounded-3xl p-6 border dark:border-slate-700">
       <h3 className="text-lg font-bold dark:text-white">
         🍪 Cookie Preferences
       </h3>
