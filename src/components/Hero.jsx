@@ -5,7 +5,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-32 md:pt-36 lg:pt-40 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      className="relative min-h-screen pt-20 md:pt-24 lg:pt-40 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 md:left-20 w-56 md:w-72 h-56 md:h-72 bg-[#f86e07]/20 blur-3xl rounded-full" />

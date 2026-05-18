@@ -59,13 +59,13 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full backdrop-blur-xl bg-white/85 dark:bg-slate-950/85 border-b border-gray-200 dark:border-slate-800 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-3 flex items-center justify-between">
 
         <Link to="/">
           <img
             src={dark ? logoDark : logoLight}
             alt="Crafteck Logo"
-            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto transition duration-300 hover:scale-105"
+            className="h-14 sm:h-16 md:h-16 lg:h-18 w-auto transition duration-300 hover:scale-105"
           />
         </Link>
 
@@ -98,7 +98,7 @@ function Navbar() {
 
           <button
             onClick={() => setDark(!dark)}
-            className="px-3 py-2 rounded-lg bg-[#f86e07] text-white"
+            className="px-4 py-3 rounded-xl bg-[#f86e07] text-white"
           >
             {dark ? "☀️" : "🌙"}
           </button>
@@ -107,7 +107,7 @@ function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-slate-900 dark:text-white"
           >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
 
         </div>
