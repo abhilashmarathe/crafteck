@@ -6,6 +6,8 @@ import {
 
 import { useEffect, useState } from "react";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 import Loader from "./components/Loader";
 import CookieConsent from "./components/CookieConsent";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -43,6 +45,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
 
         <Route path="/"          element={<Home />} />
