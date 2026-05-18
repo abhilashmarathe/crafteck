@@ -22,8 +22,6 @@ import AddProject from "./pages/AddProject";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  const dark =
-    localStorage.getItem("theme") === "dark";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,7 +32,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <Loader dark={dark} />;
+    return <Loader />;
   }
 
   return (

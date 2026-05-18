@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import logoLight from "../assets/logo-light.png";
 import logoDark from "../assets/logo-dark.png";
 
-function Loader({ dark }) {
+function Loader() {
   return (
-    <div className="fixed inset-0 bg-white dark:bg-slate-950 flex flex-col items-center justify-center z-[999]">
+    <div className="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-[999]">
 
-      {/* glow ring */}
+      {/* glow */}
       <motion.div
         className="absolute w-44 h-44 rounded-full bg-[#f86e07]/20 blur-3xl"
         animate={{
@@ -20,7 +19,7 @@ function Loader({ dark }) {
 
       {/* logo */}
       <motion.img
-        src={dark ? logoDark : logoLight}
+        src={logoDark}
         alt="Crafteck Logo"
         className="h-24 md:h-28 relative z-10"
         initial={{ scale: 0.85, opacity: 0 }}
@@ -34,7 +33,7 @@ function Loader({ dark }) {
 
       {/* text */}
       <motion.p
-        className="mt-6 text-slate-500 dark:text-gray-300 tracking-[0.3em] uppercase text-sm"
+        className="mt-6 text-gray-300 tracking-[0.3em] uppercase text-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
