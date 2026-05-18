@@ -105,7 +105,7 @@ function Portfolio({ limit = false }) {
           </div>
         )}
 
-        {limit && projects.length > 3 && (
+        {limit && (
           <div className="text-center mt-10 md:mt-14">
             <Link
               to="/portfolio"
