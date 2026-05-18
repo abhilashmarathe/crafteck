@@ -98,7 +98,7 @@ function About() {
                 </h3>
 
                 <p className="text-[#f86e07] font-semibold">
-                  Business Analyst
+                  Business Head
                 </p>
                   
                 <p className="mt-4 text-gray-600 dark:text-gray-300">
@@ -122,7 +122,7 @@ function About() {
                 </h3>
 
                 <p className="text-[#f86e07] font-semibold">
-                  Tech Lead
+                  Technical Head
                 </p>
 
                 <p className="mt-4 text-gray-600 dark:text-gray-300">
