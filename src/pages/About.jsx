@@ -1,3 +1,7 @@
+import teamPhoto from "../assets/crafteck-team.jpeg";
+import mayureshPhoto from "../assets/mayuresh.jpeg";
+import abhilashPhoto from "../assets/abhilash.jpg";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
@@ -40,7 +44,7 @@ function About() {
           <div className="grid md:grid-cols-2 gap-12 mt-24 items-center">
 
             <motion.img
-              src="/about.jpg"
+              src={teamPhoto}
               alt="Crafteck"
               className="rounded-3xl shadow-2xl"
               initial={{ opacity: 0, x: -40 }}
@@ -56,8 +60,7 @@ function About() {
               </h2>
 
               <p className="mt-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Crafteck was founded in <strong>2026</strong>
-                in Kolhapur, Maharashtra.
+                Crafteck was founded in <strong>2026</strong> in Kolhapur, Maharashtra.
 
                 <br /><br />
 
@@ -85,7 +88,7 @@ function About() {
                 className="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl"
               >
                 <img
-                  src="/mayuresh.jpg"
+                  src={mayureshPhoto}
                   alt="Mayuresh Nikam"
                   className="w-40 h-40 object-cover rounded-full mx-auto"
                 />
@@ -109,7 +112,7 @@ function About() {
                 className="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl"
               >
                 <img
-                  src="/abhilash.jpg"
+                  src={abhilashPhoto}
                   alt="Abhilash Marathe"
                   className="w-40 h-40 object-cover rounded-full mx-auto"
                 />
