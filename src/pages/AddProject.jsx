@@ -8,6 +8,7 @@ import {
   Link as LinkIcon,
   FileText,
   Layers,
+  CheckCircle2,
 } from "lucide-react";
 
 function AddProject() {
@@ -23,7 +24,6 @@ function AddProject() {
 
   async function uploadImage(file) {
     const fileName = `${Date.now()}-${file.name}`;
-
     const { error } = await supabase.storage
       .from("projects")
       .upload(fileName, file);
@@ -43,184 +43,361 @@ function AddProject() {
   async function handleImage(e) {
     const file = e.target.files[0];
     if (!file) return;
-
     setLoading(true);
-
     const url = await uploadImage(file);
-
-    if (url) {
-      setForm({
-        ...form,
-        image: url,
-      });
-    }
-
+    if (url) setForm({ ...form, image: url });
     setLoading(false);
   }
 
   async function submit(e) {
     e.preventDefault();
     setLoading(true);
-
-    const { error } = await supabase
-      .from("projects")
-      .insert([form]);
-
+    const { error } = await supabase.from("projects").insert([form]);
     setLoading(false);
-
     if (error) {
       alert(error.message);
     } else {
       alert("Project added successfully");
-
-      setForm({
-        title: "",
-        category: "",
-        description: "",
-        image: "",
-        project_url: "",
-      });
+      setForm({ title: "", category: "", description: "", image: "", project_url: "" });
     }
   }
 
-  return (
-    <div className="flex min-h-screen bg-slate-100">
+  const s = {
+    page: {
+      display: "flex",
+      minHeight: "100vh",
+      background: "#08080e",
+      fontFamily: "'DM Sans', sans-serif",
+    },
+    main: {
+      flex: 1,
+      padding: "2.5rem",
+      overflowY: "auto",
+    },
+    pageLabel: {
+      fontSize: "0.7rem",
+      fontWeight: 700,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: "#f86e07",
+      marginBottom: "0.5rem",
+      display: "block",
+    },
+    pageTitle: {
+      fontFamily: "'Outfit', sans-serif",
+      fontWeight: 800,
+      fontSize: "2rem",
+      letterSpacing: "-0.03em",
+      color: "#f2f2f5",
+      marginBottom: "0.4rem",
+    },
+    pageSub: {
+      fontSize: "0.875rem",
+      color: "#555570",
+      marginBottom: "2.5rem",
+    },
+    card: {
+      maxWidth: "720px",
+      background: "#0f0f18",
+      border: "1px solid #1a1a2e",
+      borderRadius: "14px",
+      padding: "2rem",
+    },
+    fieldGroup: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "0.4rem",
+      marginBottom: "1.25rem",
+    },
+    label: {
+      fontSize: "0.72rem",
+      fontWeight: 700,
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+      color: "#444460",
+      display: "flex",
+      alignItems: "center",
+      gap: "0.4rem",
+    },
+    inputBase: {
+      background: "#14141f",
+      border: "1px solid #222235",
+      borderRadius: "8px",
+      padding: "0.7rem 0.9rem",
+      color: "#f2f2f5",
+      fontSize: "0.9rem",
+      fontFamily: "'DM Sans', sans-serif",
+      outline: "none",
+      width: "100%",
+      boxSizing: "border-box",
+      transition: "border-color 0.18s, box-shadow 0.18s",
+    },
+  };
 
+  function focusStyle(e) {
+    e.target.style.borderColor = "#f86e07";
+    e.target.style.boxShadow = "0 0 0 3px rgba(248,110,7,0.1)";
+  }
+  function blurStyle(e) {
+    e.target.style.borderColor = "#222235";
+    e.target.style.boxShadow = "none";
+  }
+
+  return (
+    <div style={s.page}>
       <AdminSidebar />
 
-      <main className="flex-1 p-6 md:p-10">
+      <main style={s.main}>
 
-        {/* header */}
-        <div className="mb-10">
-          <p className="text-[#f86e07] font-semibold uppercase tracking-widest">
-            Project Management
-          </p>
-
-          <h1 className="text-4xl md:text-5xl font-black mt-2">
-            Add New Project
-          </h1>
-
-          <p className="text-slate-500 mt-2">
-            Upload and publish a new portfolio project.
-          </p>
+        {/* Header */}
+        <div>
+          <span style={s.pageLabel}>Project Management</span>
+          <h1 style={s.pageTitle}>Add New Project</h1>
+          <p style={s.pageSub}>Upload and publish a new portfolio project.</p>
         </div>
 
-        {/* card */}
-        <div className="max-w-4xl bg-white rounded-3xl shadow-xl p-8 md:p-10">
+        {/* Card */}
+        <div style={s.card}>
+          <form onSubmit={submit}>
 
-          <form onSubmit={submit} className="space-y-7">
+            {/* Two-col row */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
 
-            <InputField
-              icon={<FolderPlus size={18} />}
-              placeholder="Project Title"
-              value={form.title}
-              onChange={(e)=>
-                setForm({...form,title:e.target.value})
-              }
-            />
+              {/* Title */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                <label style={s.label}>
+                  <FolderPlus size={12} style={{ color: "#f86e07" }} />
+                  Project Title
+                </label>
+                <input
+                  placeholder="e.g. MindIT Sanvad Dashboard"
+                  value={form.title}
+                  onChange={(e) => setForm({ ...form, title: e.target.value })}
+                  required
+                  style={s.inputBase}
+                  onFocus={focusStyle}
+                  onBlur={blurStyle}
+                />
+              </div>
 
-            <InputField
-              icon={<Layers size={18} />}
-              placeholder="Project Category"
-              value={form.category}
-              onChange={(e)=>
-                setForm({...form,category:e.target.value})
-              }
-            />
+              {/* Category */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                <label style={s.label}>
+                  <Layers size={12} style={{ color: "#f86e07" }} />
+                  Category
+                </label>
+                <input
+                  placeholder="e.g. Web App, SaaS, Mobile"
+                  value={form.category}
+                  onChange={(e) => setForm({ ...form, category: e.target.value })}
+                  required
+                  style={s.inputBase}
+                  onFocus={focusStyle}
+                  onBlur={blurStyle}
+                />
+              </div>
 
-            {/* upload */}
-            <div>
-              <label className="text-sm font-semibold text-slate-700 mb-3 block">
-                Upload Project Image
+            </div>
+
+            {/* Image upload */}
+            <div style={{ marginBottom: "1.25rem" }}>
+              <label style={{ ...s.label, marginBottom: "0.5rem", display: "flex" }}>
+                <ImageIcon size={12} style={{ color: "#f86e07" }} />
+                Project Image
               </label>
 
-              <label className="border-2 border-dashed border-slate-300 hover:border-[#f86e07] rounded-2xl p-10 flex flex-col items-center justify-center cursor-pointer transition">
-                <UploadCloud
-                  size={40}
-                  className="text-[#f86e07] mb-3"
-                />
-
-                <p className="text-slate-600">
-                  Click to upload image
-                </p>
-
+              <label
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.6rem",
+                  padding: "2.25rem",
+                  border: "1.5px dashed #222235",
+                  borderRadius: "10px",
+                  background: "#111120",
+                  cursor: "pointer",
+                  transition: "border-color 0.2s, background 0.2s",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = "#f86e07";
+                  e.currentTarget.style.background = "rgba(248,110,7,0.04)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "#222235";
+                  e.currentTarget.style.background = "#111120";
+                }}
+              >
+                <div style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "10px",
+                  background: "rgba(248,110,7,0.1)",
+                  border: "1px solid rgba(248,110,7,0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#f86e07",
+                }}>
+                  <UploadCloud size={20} />
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontSize: "0.875rem", color: "#8888aa", marginBottom: "0.2rem" }}>
+                    Click to upload image
+                  </p>
+                  <p style={{ fontSize: "0.75rem", color: "#33334d" }}>
+                    PNG, JPG, WebP up to 10MB
+                  </p>
+                </div>
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleImage}
-                  className="hidden"
+                  style={{ display: "none" }}
                   required
                 />
               </label>
             </div>
 
+            {/* Image preview */}
             {form.image && (
-              <div>
-                <p className="text-sm font-semibold mb-3">
-                  Preview
-                </p>
-
+              <div style={{ marginBottom: "1.25rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.6rem" }}>
+                  <CheckCircle2 size={14} style={{ color: "#22c55e" }} />
+                  <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#22c55e" }}>
+                    Image uploaded
+                  </span>
+                </div>
                 <img
                   src={form.image}
                   alt="preview"
-                  className="w-full h-72 object-cover rounded-2xl border"
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                    border: "1px solid #1a1a2e",
+                  }}
                 />
               </div>
             )}
 
-            <InputField
-              icon={<LinkIcon size={18} />}
-              placeholder="Project URL"
-              value={form.project_url}
-              onChange={(e)=>
-                setForm({...form,project_url:e.target.value})
-              }
-            />
-
-            <div className="relative">
-              <div className="absolute left-4 top-4 text-[#f86e07]">
-                <FileText size={18} />
-              </div>
-
-              <textarea
-                rows="6"
-                placeholder="Project Description"
-                value={form.description}
-                onChange={(e)=>
-                  setForm({...form,description:e.target.value})
-                }
+            {/* Project URL */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.25rem" }}>
+              <label style={s.label}>
+                <LinkIcon size={12} style={{ color: "#f86e07" }} />
+                Project URL
+              </label>
+              <input
+                placeholder="https://yourproject.com"
+                value={form.project_url}
+                onChange={(e) => setForm({ ...form, project_url: e.target.value })}
                 required
-                className="w-full pl-12 p-4 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-[#f86e07] outline-none"
+                style={s.inputBase}
+                onFocus={focusStyle}
+                onBlur={blurStyle}
               />
             </div>
 
+            {/* Description */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.75rem" }}>
+              <label style={s.label}>
+                <FileText size={12} style={{ color: "#f86e07" }} />
+                Description
+              </label>
+              <textarea
+                rows="5"
+                placeholder="Describe the project — what it does, the tech stack, and the outcome…"
+                value={form.description}
+                onChange={(e) => setForm({ ...form, description: e.target.value })}
+                required
+                style={{
+                  ...s.inputBase,
+                  resize: "vertical",
+                  lineHeight: "1.65",
+                  minHeight: "120px",
+                }}
+                onFocus={focusStyle}
+                onBlur={blurStyle}
+              />
+            </div>
+
+            {/* Divider */}
+            <div style={{
+              height: "1px",
+              background: "linear-gradient(to right, transparent, #1a1a2e, transparent)",
+              marginBottom: "1.5rem",
+            }} />
+
+            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#f86e07] hover:bg-[#e86200] text-white py-5 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-[#f86e07]/30 transition"
+              style={{
+                width: "100%",
+                padding: "0.8rem",
+                borderRadius: "8px",
+                border: "none",
+                background: loading ? "#7a3700" : "#f86e07",
+                color: "#fff",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+                cursor: loading ? "not-allowed" : "pointer",
+                transition: "all 0.18s ease",
+                boxShadow: loading ? "none" : "0 4px 20px rgba(248,110,7,0.25)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+              }}
+              onMouseEnter={e => {
+                if (!loading) {
+                  e.currentTarget.style.background = "#ff8520";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(248,110,7,0.35)";
+                }
+              }}
+              onMouseLeave={e => {
+                if (!loading) {
+                  e.currentTarget.style.background = "#f86e07";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(248,110,7,0.25)";
+                }
+              }}
             >
-              {loading ? "Uploading..." : "Add Project"}
+              {loading ? (
+                <>
+                  <span style={{
+                    width: "14px", height: "14px",
+                    border: "2px solid rgba(255,255,255,0.3)",
+                    borderTopColor: "#fff",
+                    borderRadius: "50%",
+                    animation: "spin 0.7s linear infinite",
+                    display: "inline-block",
+                  }} />
+                  Uploading…
+                </>
+              ) : (
+                <>
+                  <UploadCloud size={15} />
+                  Add Project
+                </>
+              )}
             </button>
 
           </form>
         </div>
+
       </main>
-    </div>
-  );
-}
 
-function InputField({ icon, ...props }) {
-  return (
-    <div className="relative">
-      <div className="absolute left-4 top-4 text-[#f86e07]">
-        {icon}
-      </div>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        textarea::placeholder, input::placeholder { color: #33334d; }
+        textarea { font-family: 'DM Sans', sans-serif; }
+      `}</style>
 
-      <input
-        {...props}
-        required
-        className="w-full pl-12 p-4 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-[#f86e07] outline-none"
-      />
     </div>
   );
 }
